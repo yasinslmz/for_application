@@ -1,0 +1,15 @@
+CREATE TABLE i_users(userId int NOT NULL,username text,emailaddress text,isActive BOOLEAN,password text,gender text);
+
+INSERT INTO i_users (userId,username,emailaddress,isActive,password,gender ) VALUES (1,'Administrator','admin@hot.com',true,'saf3saf23sd',''),(2,'angel','aaa@hot.com',false,'aaaaaaa','M'),(3,'bubbles','bbb@hot.com',true,'sdds23232d','F'),(4,'shimmer','ccc@hot.com',false,'dsdsd222222','F'),(5,'baby','ddd@hot.com',true,'saf3saf23sd','F'),(6,'pink','eee@hot.com',true,'saf3saf23sd','M'),(7,'sparkly','fff@hot.com',false,'saf3saf23sd','M'),(8,'fairy','ggg@hot.com',false,'dddddd2222d','M'),(9,'snowflake','hhh@hot.com',true,'eee123d','F'),(10,'lovely','gggn@hot.com',false,'eee222eee','M'),(11,'sugar','admaaan@hot.com',true,'abc123abc','F');
+
+CREATE TABLE i_user_login_logs(userId int not null,login_date date);
+
+INSERT INTO i_user_login_logs(userId,login_date) VALUES (3,'02-05-2016'),(4,'04-09-2016'),(2,'13-04-2016'),(3,'12-01-2016'),(4,'22-03-2016'),(2,'13-05-2016'),(1,'11-05-2016'),(5,'23-05-2016'),(5,'14-05-2016'),(5,'25-05-2016'),(5,'26-01-2016'),(5,'27-02-2016'),(3,'22-07-2016'),(9,'10-12-2016'),(9,'09-03-2016'),(6,'12-04-2016'),(3,'01-05-2016'),(2,'02-05-2016'),(2,'02-05-2016');
+
+
+SELECT COUNT(*) as Answer_Of_Your_Question
+from(
+SELECT m.userId
+FROM i_user_login_logs as m
+GROUP BY userId
+HAVING COUNT(userId) > 3);
