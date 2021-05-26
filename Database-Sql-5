@@ -1,0 +1,5 @@
+SELECT i_users.username
+FROM i_user_login_logs,i_users
+WHERE i_users.userId=i_user_login_logs.userId
+GROUP BY i_user_login_logs.userId
+HAVING COUNT(i_user_login_logs.userId) > 3;
