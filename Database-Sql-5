@@ -1,4 +1,4 @@
-SELECT i_users.username
+SELECT i_users.username,i_users.emailaddress
 FROM i_user_login_logs,i_users
 WHERE i_users.userId=i_user_login_logs.userId
 GROUP BY i_user_login_logs.userId
